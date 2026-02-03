@@ -1,0 +1,86 @@
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1.5rem;
+}
+
+.preview-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.toolbar-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.preview-area {
+    background-color: var(--color-border);
+    /* Darker background to make paper pop */
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    flex: 1;
+}
+
+.a4-page {
+    background: white;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 25mm;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.report-header-preview {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid black;
+    padding-bottom: 1.5rem;
+}
+
+.preview-title {
+    font-size: 24pt;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-family: 'Times New Roman', serif;
+}
+
+.preview-meta {
+    font-family: 'Times New Roman', serif;
+    font-size: 12pt;
+}
+
+.report-section {
+    margin-bottom: 2rem;
+    font-family: 'Times New Roman', serif;
+    line-height: 1.5;
+}
+
+.report-section h2 {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.report-section p {
+    font-size: 12pt;
+    text-align: justify;
+}
+
+.preview-table-placeholder {
+    margin-top: 1rem;
+    padding: 2rem;
+    border: 1px dashed #ccc;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
