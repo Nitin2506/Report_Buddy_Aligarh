@@ -1,0 +1,219 @@
+.report-generator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.header-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.header-section p {
+  color: var(--color-text-secondary);
+}
+
+/* Upload Box */
+.upload-box {
+  border: 2px dashed var(--color-border);
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #FAFAFA;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.upload-box:hover {
+  border-color: var(--color-primary);
+  background-color: #F0F7FF;
+}
+
+.upload-label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-icon {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.upload-box h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.file-hint {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  margin-top: 1rem;
+}
+
+/* Dashboard */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrapper.blue { background-color: #EFF6FF; color: #3B82F6; }
+.icon-wrapper.green { background-color: #ECFDF5; color: #10B981; }
+.icon-wrapper.red { background-color: #FEF2F2; color: #EF4444; }
+
+.card-info span {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.card-info h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Zone Performance */
+.zone-performance {
+  margin-bottom: 2rem;
+}
+
+.zone-performance h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.zone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.zone-item {
+  background-color: #F8FAFC;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.zone-name {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #E2E8F0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+
+.zone-stat {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  float: right;
+}
+
+/* Table */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background-color: #F8FAFC;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.data-table tr:hover {
+  background-color: #F8FAFC;
+}
+
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+}
+
+.coverage-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.coverage-badge.high { background-color: #ECFDF5; color: #059669; }
+.coverage-badge.medium { background-color: #FFFBEB; color: #D97706; }
+.coverage-badge.low { background-color: #FEF2F2; color: #DC2626; }
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.success { background-color: #10B981; }
+.status-dot.warning { background-color: #F59E0B; }

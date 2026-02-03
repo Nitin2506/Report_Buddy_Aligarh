@@ -5,11 +5,8 @@ import './Sidebar.css';
 
 const Sidebar = () => {
     const navItems = [
-        { name: 'Dashboard', icon: <LayoutDashboard size={20} />, path: '/' },
-        { name: 'Create Report', icon: <FilePlus size={20} />, path: '/create' },
-        { name: 'My Reports', icon: <FileText size={20} />, path: '/reports' },
-        { name: 'Templates', icon: <LayoutTemplate size={20} />, path: '/templates' },
-        { name: 'Preview', icon: <Eye size={20} />, path: '/preview' },
+        { name: 'Generate Report', icon: <FilePlus size={20} />, path: '/' },
+        { name: 'History', icon: <FileText size={20} />, path: '/history' },
         { name: 'Settings', icon: <Settings size={20} />, path: '/settings' },
     ];
 

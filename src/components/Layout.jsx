@@ -9,11 +9,8 @@ const Layout = () => {
 
     // Determine title based on path
     const getPageTitle = (pathname) => {
-        if (pathname === '/') return 'Dashboard';
-        if (pathname === '/create') return 'Create Report';
-        if (pathname === '/reports') return 'My Reports';
-        if (pathname === '/templates') return 'Templates';
-        if (pathname === '/preview') return 'Preview';
+        if (pathname === '/') return 'Generate POI Report';
+        if (pathname === '/history') return 'History';
         if (pathname === '/settings') return 'Settings';
         return 'Report Buddy';
     };
