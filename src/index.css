@@ -159,6 +159,12 @@ body {
   opacity: 1;
 }
 
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
 /* Summary Cards specific */
 .summary-card {
   display: flex !important;
@@ -363,36 +369,57 @@ body {
 
   .summary-cards {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 10pt !important;
-    margin-bottom: 15pt !important;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+    gap: 12pt !important;
+    margin-bottom: 20pt !important;
   }
 
   .card {
     box-shadow: none !important;
-    border: 1px solid #e2e8f0 !important;
-    padding: 10pt !important;
+    border: 0.5pt solid #e2e8f0 !important;
+    /* Hairline border */
+    padding: 12pt !important;
     break-inside: avoid !important;
     background: #fff !important;
+    transform: none !important;
+    transition: none !important;
+    position: relative !important;
   }
 
-  .card::before {
+  .summary-card {
+    border-left-width: 4pt !important;
+    border-left-style: solid !important;
+    border-radius: 4pt !important;
+    /* Slightly sharper in print */
+  }
+
+  .card::before,
+  .card::after {
     display: none !important;
+    content: none !important;
   }
 
   .summary-card .icon-wrapper {
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 6px !important;
+    width: 36pt !important;
+    height: 36pt !important;
+    border-radius: 8pt !important;
   }
 
   .summary-card .icon-wrapper svg {
-    width: 16px !important;
-    height: 16px !important;
+    width: 18pt !important;
+    height: 18pt !important;
+  }
+
+  .summary-card .card-info span {
+    font-size: 7.5pt !important;
+    display: block !important;
+    margin-bottom: 2pt !important;
   }
 
   .summary-card .card-info h3 {
-    font-size: 1.25rem !important;
+    font-size: 16pt !important;
+    margin: 0 !important;
+    line-height: 1 !important;
   }
 
   .zone-performance .zone-grid {

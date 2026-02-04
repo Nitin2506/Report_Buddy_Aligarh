@@ -223,7 +223,7 @@ const WasteSegregationReport = () => {
                         </div>
 
                         <div style={{ padding: '1.5rem' }}>
-                            <div className="summary-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '2.5rem' }}>
+                            <div className="summary-cards" style={{ marginBottom: '2.5rem' }}>
                                 <div className="card summary-card" style={{ borderLeftColor: '#6366f1' }}>
                                     <div className="icon-wrapper" style={{ background: '#eef2ff', color: '#6366f1' }}><FileText size={24} /></div>
                                     <div className="card-info">
@@ -302,7 +302,7 @@ const WasteSegregationReport = () => {
                         </div>
 
                         <div style={{ padding: '1.5rem' }}>
-                            <div className="summary-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '2.5rem' }}>
+                            <div className="summary-cards" style={{ marginBottom: '2.5rem' }}>
                                 <div className="card summary-card" style={{ borderLeftColor: '#8b5cf6' }}>
                                     <div className="icon-wrapper" style={{ background: '#f5f3ff', color: '#8b5cf6' }}><BarChart2 size={24} /></div>
                                     <div className="card-info">

@@ -244,7 +244,7 @@ const GenerateReport = () => {
 
             {data.length > 0 && (
                 <div className="dashboard-content animate-slide">
-                    <div className="summary-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '1.5rem' }}>
+                    <div className="summary-cards" style={{ marginBottom: '1.5rem' }}>
                         <div className="card summary-card" style={{ borderLeftColor: '#6366f1' }}>
                             <div className="icon-wrapper" style={{ background: '#eef2ff', color: '#6366f1' }}><FileText size={24} /></div>
                             <div className="card-info">
