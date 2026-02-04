@@ -5,8 +5,8 @@
 
 .main-content {
     flex: 1;
-    margin-left: 260px;
-    /* Width of Sidebar */
+    margin-left: 80px;
+    /* Width of Minimized Sidebar */
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -20,10 +20,14 @@
     overflow-y: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .main-content {
         margin-left: 0;
     }
+}
 
-    /* Add responsive sidebar handling here if needed */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 1rem;
+    }
 }

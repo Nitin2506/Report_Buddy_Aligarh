@@ -1,14 +1,20 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, FilePlus, FileText, LayoutTemplate, Eye, Settings, LogOut } from 'lucide-react';
 import './Sidebar.css';
 
 const Sidebar = () => {
+    const navigate = useNavigate();
     const navItems = [
-        { name: 'Generate Report', icon: <FilePlus size={20} />, path: '/' },
+        { name: 'Generate POI Report', icon: <FilePlus size={20} />, path: '/' },
+        { name: 'IEC & Waste Segregation', icon: <LayoutTemplate size={20} />, path: '/waste-segregation' },
         { name: 'History', icon: <FileText size={20} />, path: '/history' },
         { name: 'Settings', icon: <Settings size={20} />, path: '/settings' },
     ];
+
+    const handleLogout = () => {
+        // Logic for logout can be added here
+        navigate('/login');
+    };
 
     return (
         <aside className="sidebar">
@@ -34,7 +40,7 @@ const Sidebar = () => {
             </nav>
 
             <div className="sidebar-footer">
-                <button className="nav-item logout-btn">
+                <button className="nav-item logout-btn" onClick={handleLogout}>
                     <LogOut size={20} />
                     <span>Logout</span>
                 </button>

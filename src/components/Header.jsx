@@ -2,7 +2,12 @@ import React from 'react';
 import { Bell, User, Search } from 'lucide-react';
 import './Header.css';
 
+import AuthButtons from './AuthButtons';
+
 const Header = ({ title }) => {
+    // In a real app, this would come from an auth context
+    const isLoggedIn = false;
+
     return (
         <header className="header">
             <div className="header-title">
@@ -22,16 +27,20 @@ const Header = ({ title }) => {
                     <span className="badge-dot"></span>
                 </button>
 
-                {/* User Profile */}
-                <div className="user-profile">
-                    <div className="avatar">
-                        <User size={20} />
+                {/* User Auth/Profile */}
+                {isLoggedIn ? (
+                    <div className="user-profile">
+                        <div className="avatar">
+                            <User size={20} />
+                        </div>
+                        <div className="user-info">
+                            <span className="user-name">John Doe</span>
+                            <span className="user-role">Student</span>
+                        </div>
                     </div>
-                    <div className="user-info">
-                        <span className="user-name">John Doe</span>
-                        <span className="user-role">Student</span>
-                    </div>
-                </div>
+                ) : (
+                    <AuthButtons />
+                )}
             </div>
         </header>
     );
