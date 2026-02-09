@@ -6,12 +6,20 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { ReportProvider } from './context/ReportContext.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <ReportProvider>
-                <App />
-            </ReportProvider>
-        </BrowserRouter>
-    </React.StrictMode>,
-)
+// Diagnostic logging
+console.log('Mounting Report Buddy Aligarh...');
+
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+    console.error('Failed to find the root element');
+} else {
+    ReactDOM.createRoot(rootElement).render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <ReportProvider>
+                    <App />
+                </ReportProvider>
+            </BrowserRouter>
+        </React.StrictMode>,
+    )
+}

@@ -243,17 +243,17 @@ const GenerateReport = () => {
             )}
 
             {data.length > 0 && (
-                <div className="dashboard-content animate-slide">
+                <div className="dashboard-content">
                     <div className="summary-cards" style={{ marginBottom: '1.5rem' }}>
-                        <div className="card summary-card" style={{ borderLeftColor: '#6366f1' }}>
-                            <div className="icon-wrapper" style={{ background: '#eef2ff', color: '#6366f1' }}><FileText size={24} /></div>
+                        <div className="card summary-card animate-slide" style={{ borderLeftColor: 'var(--color-primary)', animationDelay: '0.1s' }}>
+                            <div className="icon-wrapper" style={{ background: 'var(--color-primary-soft)', color: 'var(--color-primary)' }}><FileText size={24} /></div>
                             <div className="card-info">
                                 <span>Total Routes</span>
                                 <h3>{summary.totalRoutes}</h3>
                             </div>
                         </div>
 
-                        <div className="card summary-card" style={{ borderLeftColor: '#10b981' }}>
+                        <div className="card summary-card animate-slide" style={{ borderLeftColor: '#10b981', animationDelay: '0.2s' }}>
                             <div className="icon-wrapper" style={{ background: '#ecfdf5', color: '#10b981' }}><CheckCircle size={24} /></div>
                             <div className="card-info">
                                 <span>Avg Coverage</span>
@@ -261,7 +261,7 @@ const GenerateReport = () => {
                             </div>
                         </div>
 
-                        <div className="card summary-card" style={{ borderLeftColor: '#f43f5e' }}>
+                        <div className="card summary-card animate-slide" style={{ borderLeftColor: '#f43f5e', animationDelay: '0.3s' }}>
                             <div className="icon-wrapper" style={{ background: '#fff1f2', color: '#f43f5e' }}><AlertTriangle size={24} /></div>
                             <div className="card-info">
                                 <span>Low Coverage</span>
@@ -269,7 +269,7 @@ const GenerateReport = () => {
                             </div>
                         </div>
 
-                        <div className="card summary-card" style={{ borderLeftColor: '#f59e0b' }}>
+                        <div className="card summary-card animate-slide" style={{ borderLeftColor: '#f59e0b', animationDelay: '0.4s' }}>
                             <div className="icon-wrapper" style={{ background: '#fffbeb', color: '#f59e0b' }}><BarChart2 size={24} /></div>
                             <div className="card-info">
                                 <span>Commercial</span>
@@ -277,16 +277,16 @@ const GenerateReport = () => {
                             </div>
                         </div>
 
-                        {/* Additional Summary Cards restored */}
-                        <div className="card summary-card" style={{ borderLeftColor: '#7c3aed' }}>
-                            <div className="icon-wrapper" style={{ background: '#f5f3ff', color: '#7c3aed' }}><AlertTriangle size={24} /></div>
+                        {/* Additional Summary Cards */}
+                        <div className="card summary-card animate-slide" style={{ borderLeftColor: 'var(--color-secondary)', animationDelay: '0.5s' }}>
+                            <div className="icon-wrapper" style={{ background: 'rgba(30, 64, 175, 0.08)', color: 'var(--color-secondary)' }}><AlertTriangle size={24} /></div>
                             <div className="card-info">
                                 <span>Unassigned</span>
                                 <h3>{summary.unassignedCount}</h3>
                             </div>
                         </div>
 
-                        <div className="card summary-card" style={{ borderLeftColor: '#1e40af' }}>
+                        <div className="card summary-card animate-slide" style={{ borderLeftColor: '#1e40af', animationDelay: '0.6s' }}>
                             <div className="icon-wrapper" style={{ background: '#dbeafe', color: '#1e40af' }}><BarChart2 size={24} /></div>
                             <div className="card-info">
                                 <span>Std Vehicles</span>
@@ -294,15 +294,15 @@ const GenerateReport = () => {
                             </div>
                         </div>
 
-                        <div className="card summary-card" style={{ borderLeftColor: '#ea580c' }}>
-                            <div className="icon-wrapper" style={{ background: '#fff7ed', color: '#ea580c' }}><BarChart2 size={24} /></div>
+                        <div className="card summary-card animate-slide" style={{ borderLeftColor: 'var(--color-accent)', animationDelay: '0.7s' }}>
+                            <div className="icon-wrapper" style={{ background: 'rgba(249, 115, 22, 0.08)', color: 'var(--color-accent)' }}><BarChart2 size={24} /></div>
                             <div className="card-info">
                                 <span>Comm. Veh.</span>
                                 <h3>{summary.uniqueCommercialVehicles}</h3>
                             </div>
                         </div>
 
-                        <div className="card summary-card" style={{ borderLeftColor: '#d97706' }}>
+                        <div className="card summary-card animate-slide" style={{ borderLeftColor: '#d97706', animationDelay: '0.8s' }}>
                             <div className="icon-wrapper" style={{ background: '#fffbeb', color: '#d97706' }}><BarChart2 size={24} /></div>
                             <div className="card-info">
                                 <span>Duplicates</span>
@@ -311,7 +311,7 @@ const GenerateReport = () => {
                         </div>
                     </div>
 
-                    <div className="card" style={{ marginBottom: '2.5rem' }}>
+                    <div className="card animate-slide" style={{ marginBottom: '2.5rem', animationDelay: '0.9s' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
                             <div style={{ width: '4px', height: '20px', background: 'var(--grad-main)', borderRadius: '2px' }}></div>
                             <h3 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Zone Wise Performance</h3>
@@ -340,7 +340,7 @@ const GenerateReport = () => {
                         </div>
                     </div>
 
-                    <div className="card no-padding" style={{ padding: 0, overflow: 'hidden', marginBottom: '2.5rem' }}>
+                    <div className="card no-padding animate-slide" style={{ padding: 0, overflow: 'hidden', marginBottom: '2.5rem', animationDelay: '1s' }}>
                         <div style={{ padding: '1.5rem', borderBottom: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f8fafc' }}>
                             <h3 style={{ fontSize: '1.1rem', fontWeight: '700' }}>Detailed Coverage Report (Standard)</h3>
                             <div className="table-actions no-print" style={{ display: 'flex', gap: '1rem' }}>
@@ -426,7 +426,7 @@ const GenerateReport = () => {
 
                     {/* Restored Commercial Routes Section */}
                     {filteredCommercialData.length > 0 && (
-                        <div className="card no-padding animate-slide" style={{ padding: 0, overflow: 'hidden' }}>
+                        <div className="card no-padding animate-slide" style={{ padding: 0, overflow: 'hidden', animationDelay: '1.1s' }}>
                             <div style={{ padding: '1.5rem', borderBottom: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fff7ed' }}>
                                 <h3 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#ea580c' }}>Commercial Routes (CR & ERC)</h3>
                                 <div style={{ fontSize: '0.85rem', fontWeight: '600', color: '#ea580c', background: '#ffedd5', padding: '0.25rem 0.75rem', borderRadius: '20px' }}>
