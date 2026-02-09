@@ -248,7 +248,7 @@ const GenerateReport = () => {
                         <div className="card summary-card animate-slide" style={{ borderLeftColor: 'var(--color-primary)', animationDelay: '0.1s' }}>
                             <div className="icon-wrapper" style={{ background: 'var(--color-primary-soft)', color: 'var(--color-primary)' }}><FileText size={24} /></div>
                             <div className="card-info">
-                                <span>Total Routes</span>
+                                <span>D2D Routes</span>
                                 <h3>{summary.totalRoutes}</h3>
                             </div>
                         </div>
@@ -264,7 +264,7 @@ const GenerateReport = () => {
                         <div className="card summary-card animate-slide" style={{ borderLeftColor: '#f43f5e', animationDelay: '0.3s' }}>
                             <div className="icon-wrapper" style={{ background: '#fff1f2', color: '#f43f5e' }}><AlertTriangle size={24} /></div>
                             <div className="card-info">
-                                <span>Low Coverage</span>
+                                <span>Route Coverage &lt;50</span>
                                 <h3>{summary.lowCoverage}</h3>
                             </div>
                         </div>
@@ -272,7 +272,7 @@ const GenerateReport = () => {
                         <div className="card summary-card animate-slide" style={{ borderLeftColor: '#f59e0b', animationDelay: '0.4s' }}>
                             <div className="icon-wrapper" style={{ background: '#fffbeb', color: '#f59e0b' }}><BarChart2 size={24} /></div>
                             <div className="card-info">
-                                <span>Commercial</span>
+                                <span>Commercial Routes</span>
                                 <h3>{summary.commercialCount}</h3>
                             </div>
                         </div>
@@ -281,7 +281,7 @@ const GenerateReport = () => {
                         <div className="card summary-card animate-slide" style={{ borderLeftColor: 'var(--color-secondary)', animationDelay: '0.5s' }}>
                             <div className="icon-wrapper" style={{ background: 'rgba(30, 64, 175, 0.08)', color: 'var(--color-secondary)' }}><AlertTriangle size={24} /></div>
                             <div className="card-info">
-                                <span>Unassigned</span>
+                                <span>Unassigned Routes</span>
                                 <h3>{summary.unassignedCount}</h3>
                             </div>
                         </div>
@@ -289,7 +289,7 @@ const GenerateReport = () => {
                         <div className="card summary-card animate-slide" style={{ borderLeftColor: '#1e40af', animationDelay: '0.6s' }}>
                             <div className="icon-wrapper" style={{ background: '#dbeafe', color: '#1e40af' }}><BarChart2 size={24} /></div>
                             <div className="card-info">
-                                <span>Std Vehicles</span>
+                                <span>Assigned Vehicles</span>
                                 <h3>{summary.uniqueStandardVehicles}</h3>
                             </div>
                         </div>
@@ -297,7 +297,7 @@ const GenerateReport = () => {
                         <div className="card summary-card animate-slide" style={{ borderLeftColor: 'var(--color-accent)', animationDelay: '0.7s' }}>
                             <div className="icon-wrapper" style={{ background: 'rgba(249, 115, 22, 0.08)', color: 'var(--color-accent)' }}><BarChart2 size={24} /></div>
                             <div className="card-info">
-                                <span>Comm. Veh.</span>
+                                <span>Commercial Vehicle Assigned</span>
                                 <h3>{summary.uniqueCommercialVehicles}</h3>
                             </div>
                         </div>
@@ -305,7 +305,7 @@ const GenerateReport = () => {
                         <div className="card summary-card animate-slide" style={{ borderLeftColor: '#d97706', animationDelay: '0.8s' }}>
                             <div className="icon-wrapper" style={{ background: '#fffbeb', color: '#d97706' }}><BarChart2 size={24} /></div>
                             <div className="card-info">
-                                <span>Duplicates</span>
+                                <span>Duplicate Vehicles</span>
                                 <h3>{summary.duplicateVehicleCount}</h3>
                             </div>
                         </div>

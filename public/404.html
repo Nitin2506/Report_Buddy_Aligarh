@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/?p=%2F" />
+    <script>
+      (function() {
+        var path = location.pathname + location.search + location.hash;
+        var encoded = encodeURIComponent(path);
+        location.replace('/?p=' + encoded);
+      })();
+    </script>
+    <title>Redirecting...</title>
+  </head>
+  <body></body>
+</html>
