@@ -183,7 +183,7 @@ const WasteSegregationReport = () => {
                 <div className="upload-section">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
                         <div style={{ width: '4px', height: '20px', background: 'var(--color-primary)', borderRadius: '2px' }}></div>
-                        <h3 style={{ fontSize: '1.1rem', fontWeight: '700' }}>1. D2D Routes Report</h3>
+                        <h3 style={{ fontSize: '1.1rem', fontWeight: '700' }}>1. IEC Campaign Execution</h3>
                     </div>
                     {!iecData.length ? (
                         <div
@@ -281,10 +281,10 @@ const WasteSegregationReport = () => {
                         <div style={{ padding: '1.5rem', borderBottom: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f8fafc' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                 <div style={{ width: '42px', height: '42px', background: 'var(--color-primary-soft)', color: 'var(--color-primary)', borderRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><FileText size={20} /></div>
-                                <h3 style={{ fontSize: '1.15rem', fontWeight: '800' }}>D2D Routes Supervisor Performance</h3>
+                                <h3 style={{ fontSize: '1.15rem', fontWeight: '800' }}>IEC Campaign Execution</h3>
                             </div>
                             <button className="btn btn-primary no-print" onClick={() => window.print()} style={{ padding: '0.6rem 1.25rem' }}>
-                                <Download size={16} /> Export D2D Routes PDF
+                                <Download size={16} /> Export PDF
                             </button>
                         </div>
 
