@@ -204,7 +204,7 @@ const WasteSegregationReport = () => {
                             <input type="file" accept=".csv" id="iecUpload" onChange={(e) => handleFileUpload(e, 'iec')} hidden />
                             <label htmlFor="iecUpload" className="upload-label" style={{ cursor: 'pointer', textAlign: 'center', pointerEvents: dragOver.iec ? 'none' : 'auto' }}>
                                 <div style={{ color: 'var(--color-primary)', marginBottom: '1rem' }}><Upload size={32} /></div>
-                                <h4 style={{ fontSize: '1rem' }}>{dragOver.iec ? 'Drop CSV file here' : 'Upload D2D Routes CSV'}</h4>
+                                <h4 style={{ fontSize: '1rem' }}>{dragOver.iec ? 'Drop CSV file here' : 'Upload IEC Report CSV'}</h4>
                                 <p style={{ fontSize: '0.8rem', color: 'var(--color-text-dim)', marginTop: '0.25rem' }}>
                                     {dragOver.iec ? 'Release to upload' : 'Door-to-Door Route Data'}
                                 </p>
