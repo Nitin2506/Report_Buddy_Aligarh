@@ -7,6 +7,7 @@ const Sidebar = () => {
     const navItems = [
         { name: 'Generate POI Report', icon: <FilePlus size={20} />, path: '/' },
         { name: 'IEC & Waste Segregation', icon: <LayoutTemplate size={20} />, path: '/waste-segregation' },
+        { name: 'Other IMP Reports', icon: <LayoutDashboard size={20} />, path: '/other-reports' },
         { name: 'History', icon: <FileText size={20} />, path: '/history' },
         { name: 'Settings', icon: <Settings size={20} />, path: '/settings' },
     ];

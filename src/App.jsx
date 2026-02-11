@@ -15,6 +15,7 @@ function App() {
             <Route path="/" element={<Layout />}>
                 <Route index element={<GenerateReport />} />
                 <Route path="waste-segregation" element={<WasteSegregationReport />} />
+                <Route path="other-reports" element={<Placeholder title="Other IMP Reports" />} />
                 <Route path="history" element={<Placeholder title="History" />} />
                 <Route path="settings" element={<Placeholder title="Settings" />} />
             </Route>

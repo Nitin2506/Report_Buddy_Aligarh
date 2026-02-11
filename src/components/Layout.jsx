@@ -10,6 +10,8 @@ const Layout = () => {
     // Determine title based on path
     const getPageTitle = (pathname) => {
         if (pathname === '/') return 'Generate POI Report';
+        if (pathname === '/waste-segregation') return 'IEC Campaign Execution & Waste Segregation';
+        if (pathname === '/other-reports') return 'Other IMP Reports';
         if (pathname === '/history') return 'History';
         if (pathname === '/settings') return 'Settings';
         return 'Report Buddy';
