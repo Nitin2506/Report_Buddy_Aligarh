@@ -1,0 +1,94 @@
+.date-wise-coverage-report-container {
+  /* This will be the container for the entire report, allowing it to span full width */
+  width: 100%;
+  /* Removed padding to make it span from very left to very right */
+  box-sizing: border-box; /* Include padding in the width */
+}
+
+.date-wise-coverage-table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Add this line for horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+}
+
+.date-wise-coverage-table {
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+/* Sticky columns for the Date Wise Coverage Report */
+.date-wise-coverage-table th:nth-child(1),
+.date-wise-coverage-table td:nth-child(1) {
+    position: sticky;
+    left: 0;
+    z-index: 10; /* Increased z-index */
+    background-color: #f8fafc; /* Explicitly set background to match header */
+    width: 60px;
+    min-width: 60px;
+    border-right: 1px solid var(--color-border); /* Visual separator */
+}
+
+.date-wise-coverage-table th:nth-child(2),
+.date-wise-coverage-table td:nth-child(2) {
+    position: sticky;
+    left: 60px; /* Width of S.No column */
+    z-index: 9; /* Increased z-index */
+    background-color: #f8fafc;
+    min-width: 150px;
+    border-right: 1px solid var(--color-border);
+}
+
+.date-wise-coverage-table th:nth-child(3),
+.date-wise-coverage-table td:nth-child(3) {
+    position: sticky;
+    left: calc(60px + 150px); /* Width of S.No + Zone & Circle */
+    z-index: 8; /* Increased z-index */
+    background-color: #f8fafc;
+    min-width: 150px;
+    border-right: 1px solid var(--color-border);
+}
+
+.date-wise-coverage-table th:nth-child(4),
+.date-wise-coverage-table td:nth-child(4) {
+    position: sticky;
+    left: calc(60px + 150px + 150px); /* Width of S.No + Zone & Circle + Ward Name */
+    z-index: 7; /* Increased z-index */
+    background-color: #f8fafc;
+    min-width: 200px;
+    border-right: 1px solid var(--color-border);
+}
+
+/* Ensure sticky headers also have a background */
+.date-wise-coverage-table thead th {
+    background-color: #f8fafc; /* Match the header background */
+    z-index: 6; /* Higher than sticky body cells, but lower than specific sticky headers */
+}
+
+.date-wise-coverage-table thead th:nth-child(1) { z-index: 13; } /* Increased z-index */
+.date-wise-coverage-table thead th:nth-child(2) { z-index: 12; } /* Increased z-index */
+.date-wise-coverage-table thead th:nth-child(3) { z-index: 11; } /* Increased z-index */
+.date-wise-coverage-table thead th:nth-child(4) { z-index: 10; } /* Increased z-index */
+
+
+.date-wise-coverage-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.date-wise-coverage-table td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  vertical-align: middle;
+}
+
+.date-wise-coverage-table tr:hover {
+  background-color: #f9fafb;
+}

@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { useReport } from '../context/ReportContext';
 import { Upload, FileText, CheckCircle, AlertTriangle, BarChart2, Download, RefreshCcw } from 'lucide-react';
-import './GenerateReport.css';
+import '../components/ReportGenerator.css';
 import '../components/Select.css';
+import parseCSV from '../utils/csvParser'; // Import parseCSV
 
 import { sampleCSV } from '../data/sampleReport';
 
@@ -24,7 +25,8 @@ const GenerateReport = () => {
             const reader = new FileReader();
             reader.onload = (e) => {
                 const text = e.target.result;
-                parseCSV(text);
+                setData(parseCSV(text)); // Use the imported parseCSV
+                setLoading(false);
             };
             reader.readAsText(uploadedFile);
         }
@@ -33,46 +35,9 @@ const GenerateReport = () => {
     const handleLoadDemo = () => {
         setLoading(true);
         setTimeout(() => {
-            parseCSV(sampleCSV);
+            setData(parseCSV(sampleCSV)); // Use the imported parseCSV
+            setLoading(false);
         }, 500);
-    };
-
-    const parseCSV = (csvText) => {
-        const lines = csvText.split('\n');
-        if (lines.length === 0) return;
-
-        const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
-        const parsedData = [];
-
-        for (let i = 1; i < lines.length; i++) {
-            const line = lines[i].trim();
-            if (!line) continue;
-
-            const values = [];
-            let current = '';
-            let inQuotes = false;
-
-            for (let char of line) {
-                if (char === '"') {
-                    inQuotes = !inQuotes;
-                } else if (char === ',' && !inQuotes) {
-                    values.push(current.trim());
-                    current = '';
-                } else {
-                    current += char;
-                }
-            }
-            values.push(current.trim());
-
-            const row = {};
-            headers.forEach((header, index) => {
-                row[header] = values[index] || '';
-            });
-            parsedData.push(row);
-        }
-
-        setData(parsedData);
-        setLoading(false);
     };
 
     const standardData = data.filter(item => {

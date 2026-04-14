@@ -181,6 +181,48 @@ const WasteSegregationReport = () => {
         };
     }, [other1Data]);
 
+    const bulkSummary = useMemo(() => {
+        if (other2Data.length === 0) return null;
+        const zonalQrCodeCounts = {}; // To store unique QR codes per zone
+        const siteNameCounts = {}; // To store total scans per site name
+        other2Data.forEach(item => {
+            const siteName = item['Site Name'] || 'Unknown';
+            const qrCodeId = item['QR Code ID'];
+
+            if (siteName !== 'Unknown') {
+                // Count total scans per site name
+                siteNameCounts[siteName] = (siteNameCounts[siteName] || 0) + 1;
+
+                // Count unique QR codes per site name
+                if (qrCodeId) {
+                    if (!zonalQrCodeCounts[siteName]) {
+                        zonalQrCodeCounts[siteName] = new Set();
+                    }
+                    zonalQrCodeCounts[siteName].add(qrCodeId);
+                }
+            }
+        });
+
+        const zonalStats = Object.entries(zonalQrCodeCounts)
+            .map(([name, qrCodes]) => ({
+                name,
+                qrCodeCount: qrCodes.size,
+                scannedCount: siteNameCounts[name] || 0 // Include total scanned count
+            }))
+            .sort((a, b) => b.qrCodeCount - a.qrCodeCount);
+
+        const totalQrCodes = zonalStats.reduce((acc, curr) => acc + curr.qrCodeCount, 0);
+        const uniqueWards = new Set(other2Data.map(item => item['Ward Name'])).size;
+        const uniqueZones = zonalStats.length; // Number of unique site names
+
+        return {
+            totalQrCodes,
+            uniqueZones,
+            uniqueWards,
+            zonalStats
+        };
+    }, [other2Data]);
+
     return (
         <div className="report-generator-container animate-fade">
             <h1 className="print-only" style={{ display: 'none' }}>
@@ -565,7 +607,14 @@ const WasteSegregationReport = () => {
                                             </tr>
                                         ))}
                                     </tbody>
-                                </table>
+                                     <tfoot>
+                                         <tr>
+                                             <td style={{ textAlign: 'right', fontWeight: '800', fontSize: '1rem', padding: '1rem 1.5rem', background: '#f8fafc' }}>Grand Total</td>
+                                             <td style={{ textAlign: 'center', fontWeight: '800', fontSize: '1rem', padding: '1rem 1.5rem', background: '#f8fafc' }}>{bulkSummary.totalQrCodes}</td>
+                                             <td style={{ textAlign: 'center', fontWeight: '800', fontSize: '1rem', padding: '1rem 1.5rem', background: '#f8fafc' }}>{bulkSummary.zonalStats.reduce((acc, curr) => acc + curr.scannedCount, 0)}</td>
+                                         </tr>
+                                     </tfoot>
+                                 </table>
                             </div>
                         </div>
                     </div>
@@ -644,6 +693,77 @@ const WasteSegregationReport = () => {
                                             </tr>
                                         ))}
                                     </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {/* Bulk Collection Report View */}
+            {other2Data.length > 0 && (
+                <div className="dashboard-content">
+                    <div className="card no-padding animate-slide" style={{ padding: 0, marginBottom: '4rem', overflow: 'hidden', animationDelay: '0.2s' }}>
+                        <div style={{ padding: '1.5rem', borderBottom: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f8fafc' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <div style={{ width: '42px', height: '42px', background: 'rgba(30, 64, 175, 0.08)', color: 'var(--color-secondary)', borderRadius: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><FileText size={20} /></div>
+                                <h3 style={{ fontSize: '1.15rem', fontWeight: '800' }}>Bulk Collection Report</h3>
+                            </div>
+                            <button className="btn btn-primary no-print" onClick={() => window.print()} style={{ padding: '0.6rem 1.25rem' }}>
+                                <Download size={16} /> Export Bulk PDF
+                            </button>
+                        </div>
+
+                        <div style={{ padding: '1.5rem' }}>
+                            <div className="summary-cards" style={{ marginBottom: '2.5rem' }}>
+                                <div className="card summary-card animate-slide" style={{ borderLeftColor: 'var(--color-secondary)', animationDelay: '0.1s' }}>
+                                    <div className="icon-wrapper" style={{ background: 'rgba(30, 64, 175, 0.08)', color: 'var(--color-secondary)' }}><FileText size={24} /></div>
+                                    <div className="card-info">
+                                        <span>Total QR Codes</span>
+                                     <h3>{bulkSummary.totalQrCodes}</h3>
+                                 </div>
+                             </div>
+                             <div className="card summary-card animate-slide" style={{ borderLeftColor: '#f59e0b', animationDelay: '0.2s' }}>
+                                 <div className="icon-wrapper" style={{ background: 'rgba(245, 158, 11, 0.1)', color: '#f59e0b' }}><BarChart2 size={24} /></div>
+                                 <div className="card-info">
+                                     <span>Total Zones</span>
+                                     <h3>{bulkSummary.uniqueZones}</h3>
+                                    </div>
+                                </div>
+                                <div className="card summary-card animate-slide" style={{ borderLeftColor: '#10b981', animationDelay: '0.3s' }}>
+                                    <div className="icon-wrapper" style={{ background: '#ecfdf5', color: '#10b981' }}><CheckCircle size={24} /></div>
+                                    <div className="card-info">
+                                        <span>Wards Covered</span>
+                                        <h3>{bulkSummary.uniqueWards}</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="table-responsive">
+                                <table className="data-table">
+                                    <thead>
+                                         <tr>
+                                             <th>Site Name</th>
+                                             <th style={{ textAlign: 'center' }}>Total QRs</th>
+                                             <th style={{ textAlign: 'center' }}>Scanned</th>
+                                         </tr>
+                                     </thead>
+                                    <tbody>
+                                         {bulkSummary.zonalStats.map((stat, i) => (
+                                             <tr key={i}>
+                                                 <td style={{ fontWeight: '700' }}>{stat.name}</td>
+                                                 <td style={{ textAlign: 'center' }}>
+                                                     <span style={{ padding: '0.25rem 0.75rem', background: 'rgba(30, 64, 175, 0.08)', color: 'var(--color-secondary)', borderRadius: '6px', fontWeight: '800', fontSize: '0.85rem' }}>
+                                                         {stat.qrCodeCount}
+                                                     </span>
+                                                 </td>
+                                                 <td style={{ textAlign: 'center' }}>
+                                                     <span style={{ padding: '0.25rem 0.75rem', background: 'rgba(245, 158, 11, 0.1)', color: '#f59e0b', borderRadius: '6px', fontWeight: '800', fontSize: '0.85rem' }}>
+                                                         {stat.scannedCount}
+                                                     </span>
+                                                 </td>
+                                             </tr>
+                                         ))}
+                                     </tbody>
                                 </table>
                             </div>
                         </div>

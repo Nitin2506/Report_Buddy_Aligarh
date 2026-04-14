@@ -22,6 +22,16 @@ export const ReportProvider = ({ children }) => {
     const [other3File, setOther3File] = useState(null);
     const [other4File, setOther4File] = useState(null);
 
+    // State for Date Wise Coverage Report
+    const [dateWiseData, setDateWiseData] = useState([]);
+    const [dateWiseFile, setDateWiseFile] = useState(null);
+    const [dateWiseFilters, setDateWiseFilters] = useState({
+        startDate: '',
+        endDate: '',
+        zone: '',
+        ward: ''
+    });
+
     const resetPoiData = () => {
         setPoiData([]);
         setPoiFile(null);
@@ -48,6 +58,17 @@ export const ReportProvider = ({ children }) => {
         }
     };
 
+    const resetDateWiseData = () => {
+        setDateWiseData([]);
+        setDateWiseFile(null);
+        setDateWiseFilters({
+            startDate: '',
+            endDate: '',
+            zone: '',
+            ward: ''
+        });
+    };
+
     return (
         <ReportContext.Provider value={{
             poiData, setPoiData,
@@ -66,7 +87,11 @@ export const ReportProvider = ({ children }) => {
             other2File, setOther2File,
             other3File, setOther3File,
             other4File, setOther4File,
-            resetWasteSegData
+            resetWasteSegData,
+            dateWiseData, setDateWiseData,
+            dateWiseFile, setDateWiseFile,
+            dateWiseFilters, setDateWiseFilters,
+            resetDateWiseData
         }}>
             {children}
         </ReportContext.Provider>
