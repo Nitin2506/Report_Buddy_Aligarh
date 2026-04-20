@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, FilePlus, FileText, LayoutTemplate, Eye, Settings, LogOut, CalendarDays } from 'lucide-react';
+import { LayoutDashboard, FilePlus, FileText, LayoutTemplate, Eye, Settings, LogOut, CalendarDays, CheckCircle, Component } from 'lucide-react';
 import './Sidebar.css';
 
 const Sidebar = () => {
@@ -7,6 +7,8 @@ const Sidebar = () => {
     const navItems = [
         { name: 'Generate POI Report', icon: <FilePlus size={20} />, path: '/' },
         { name: 'IEC & Waste Segregation', icon: <LayoutTemplate size={20} />, path: '/waste-segregation' },
+        { name: 'Waste Segregation Compliance', icon: <CheckCircle size={20} />, path: '/waste-segregation-compliance' },
+        { name: 'Bulk Collection Scans', icon: <Component size={20} />, path: '/bulk-collection' },
         { name: 'Other IMP Reports', icon: <LayoutDashboard size={20} />, path: '/other-reports' },
         { name: 'Date Wise Coverage Report', icon: <CalendarDays size={20} />, path: '/date-wise-coverage' },
         { name: 'History', icon: <FileText size={20} />, path: '/history' },

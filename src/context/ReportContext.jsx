@@ -8,6 +8,16 @@ export const ReportProvider = ({ children }) => {
     const [poiFile, setPoiFile] = useState(null);
     const [poiFilters, setPoiFilters] = useState({ zone: '', ward: '' });
 
+    // State for Waste Segregation Compliance Report
+    const [compData, setCompData] = useState([]);
+    const [compFile, setCompFile] = useState(null);
+    const [compFilters, setCompFilters] = useState({ zone: '', ward: '', startDate: '', endDate: '' });
+
+    // State for Bulk Collection Report
+    const [bulkData, setBulkData] = useState([]);
+    const [bulkFile, setBulkFile] = useState(null);
+    const [bulkFilters, setBulkFilters] = useState({ zone: '', ward: '', startDate: '', endDate: '', category: '' });
+
     // State for IEC & Waste Segregation Report
     const [iecData, setIecData] = useState([]);
     const [wasteData, setWasteData] = useState([]);
@@ -36,6 +46,18 @@ export const ReportProvider = ({ children }) => {
         setPoiData([]);
         setPoiFile(null);
         setPoiFilters({ zone: '', ward: '' });
+    };
+
+    const resetCompData = () => {
+        setCompData([]);
+        setCompFile(null);
+        setCompFilters({ zone: '', ward: '', startDate: '', endDate: '' });
+    };
+
+    const resetBulkData = () => {
+        setBulkData([]);
+        setBulkFile(null);
+        setBulkFilters({ zone: '', ward: '', startDate: '', endDate: '', category: '' });
     };
 
     const resetWasteSegData = (type) => {
@@ -75,6 +97,14 @@ export const ReportProvider = ({ children }) => {
             poiFile, setPoiFile,
             poiFilters, setPoiFilters,
             resetPoiData,
+            compData, setCompData,
+            compFile, setCompFile,
+            compFilters, setCompFilters,
+            resetCompData,
+            bulkData, setBulkData,
+            bulkFile, setBulkFile,
+            bulkFilters, setBulkFilters,
+            resetBulkData,
             iecData, setIecData,
             wasteData, setWasteData,
             iecFile, setIecFile,
